@@ -6,9 +6,9 @@ import './App.css';
 function App() {
   //hook to set state
   const [todos, setTodos] = React.useState([
-    { text: "Learn about React" },
-    { text: "Meet friend for lunch" },
-    { text: "Build really cool todo app" }
+    { text: "Learn about React", isCompleted: false},
+    { text: "Meet friend for lunch", isCompleted: false },
+    { text: "Build really cool todo app", isCompleted: false }
   ]);
 
   const addTodo = text => {
@@ -17,13 +17,28 @@ function App() {
     setTodos(newTodos);
   };
 
+  const completeTodo = index => {
+    //this time, copy todo again, but we're not adding anything
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    //finally, update
+    //note: never change value of newtodos directly, always access it through a getter function like so
+    setTodos(newTodos);
+  };
+
   //adds a <div> for app, a <div> for todo-list, and a map of the todos to Todo components.
   return (
+    
     <div className="app">
       
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo key={index} index={index} todo={todo} />
+          <Todo 
+            key={index} 
+            index={index} 
+            todo={todo} 
+            completeTodo={completeTodo}
+          />
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
@@ -33,7 +48,16 @@ function App() {
 
 //renders each item in todo list
 function Todo({ todo }) {
-  return (<div className="todo">{todo.text}</div>
+  return (<div 
+    className="todo"
+    //ternary operator --> (condition) ? expression on true : expression on false
+    style = {{ textDecoration: (todo.isCompleted) ? "line-through" : ""}}
+    >
+      {todo.text}
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+      </div>
+    </div>
   );
 };
 
