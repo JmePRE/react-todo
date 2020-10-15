@@ -1,9 +1,11 @@
 # todo app
 
 ## Frontend
-### React (15-16)
+### React (15-17)
 - React tutorial https://reactjs.org/docs/hello-world.html 
 - Redux todo app https://redux.js.org/tutorials/essentials/part-1-overview-concepts
+
+- updatestate: https://reactjs.org/docs/hooks-state.html 
 
 ### SASS
 - SASS tutorial https://www.w3schools.com/sass/ https://sass-lang.com/guide 
