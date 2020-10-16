@@ -1,6 +1,62 @@
-$item : ivory;
+$item : white;
+$shadow-color: #e8e8e8;
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+header {
+    @include flexCenter(column);
+    background: -moz-linear-gradient();
+    height:100vh;
+}
 
 .app {
     background: skyblue;
+    @include flexCenter(row);
+    height: 100vh;
+    padding: 30px;
+}
 
+.todo-list {
+    background: $shadow-color;
+    border-radius: 4px;
+    padding: 5px;
+    width: 40%;
+    height: min-content;
+
+}
+.todo {
+    background: $item;
+    border-radius: 4px;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 3px 10px;
+    display: flex;
+    flex-direction: row;
+
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+
+    button {
+        background-color: white;
+        &:hover {
+            background: $shadow-color;
+        }
+        border-radius: 2px;
+        border-color: $shadow-color;
+    }
+}
+
+form {
+    width: 100%;
+    input {
+        @extend .todo;
+        border-color: $shadow-color;
+        border-style: solid;
+        width: 95%;
+    }
+    
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 //import './App.css';
-import style from "./styles/dist/App.css";
+import "./styles/dist/App.css";
 
 //from https://www.digitalocean.com/community/tutorials/how-to-build-a-react-to-do-app-with-react-hooks
 
@@ -93,7 +93,7 @@ function TodoForm({ addTodo }) {
 
 	//displays form
 	return (
-		<form onSubmit={handleSubmit} className={style.container}>
+		<form onSubmit={handleSubmit}>
 		<input
 			type="text"
 			className="input"
