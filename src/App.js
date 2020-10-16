@@ -1,17 +1,19 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
+import style from "./styles/dist/App.css";
 
 //from https://www.digitalocean.com/community/tutorials/how-to-build-a-react-to-do-app-with-react-hooks
 
 function App() {
   //hook to set state
+  //state constant todos, update method is setTodos
 	const [todos, setTodos] = React.useState([
 		{ text: "Learn about React", isCompleted: false},
 		{ text: "Meet friend for lunch", isCompleted: false },
 		{ text: "Build really cool todo app", isCompleted: false }
 	]);
 
-  //Editing functions---------------------------------------------------------------------------------------
+  	//Editing functions---------------------------------------------------------------------------------------
 
 	const addTodo = text => {
 		//...todos --> Array/Object spread operator: basically copies all the params from todos, and adds another text
@@ -91,7 +93,7 @@ function TodoForm({ addTodo }) {
 
 	//displays form
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className={style.container}>
 		<input
 			type="text"
 			className="input"
