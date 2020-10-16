@@ -11,6 +11,8 @@ function App() {
     { text: "Build really cool todo app", isCompleted: false }
   ]);
 
+  //Editing functions---------------------------------------------------------------------------------------
+
   const addTodo = text => {
     //...todos --> Array/Object spread operator: basically copies all the params from todos, and adds another text
     const newTodos = [...todos, { text }];
@@ -26,19 +28,28 @@ function App() {
     setTodos(newTodos);
   };
 
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
+//--------------------------------------------------------------------------------------------------
+
   //adds a <div> for app, a <div> for todo-list, and a map of the todos to Todo components.
-  return (
+	return (
     
     <div className="app">
       
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo 
-            key={index} 
+        	<Todo 
+        	key={index} 
             index={index} 
             todo={todo} 
             completeTodo={completeTodo}
-          />
+            removeTodo={removeTodo}
+        />
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
@@ -47,7 +58,7 @@ function App() {
 }
 
 //renders each item in todo list
-function Todo({ todo }) {
+function Todo({ todo, index, completeTodo, removeTodo }) {
   return (<div 
     className="todo"
     //ternary operator --> (condition) ? expression on true : expression on false
@@ -56,6 +67,8 @@ function Todo({ todo }) {
       {todo.text}
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => removeTodo(index)}>x</button>
+
       </div>
     </div>
   );
