@@ -1,10 +1,14 @@
-header {
+.hero {
   display: flex;
   justify-self: center;
   justify-content: center;
-  flex-direction: column;
-  background: -moz-linear-gradient();
+  flex-direction: row;
   height: 100vh;
+  background: azure;
+  align-items: center;
+}
+.hero h1 {
+  color: aquamarine;
 }
 
 .app {

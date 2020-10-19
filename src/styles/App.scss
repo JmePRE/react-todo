@@ -8,10 +8,15 @@ $shadow-color: #e8e8e8;
     flex-direction: $direction;
 }
 
-header {
-    @include flexCenter(column);
-    background: -moz-linear-gradient();
+.hero {
+    @include flexCenter(row);
     height:100vh;
+    background: azure;
+    align-items: center;
+
+    h1 {
+        color: aquamarine;
+    }
 }
 
 .app {

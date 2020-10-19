@@ -4,6 +4,14 @@ import "./styles/dist/App.css";
 
 //from https://www.digitalocean.com/community/tutorials/how-to-build-a-react-to-do-app-with-react-hooks
 
+function Hero(props) {
+	return (
+		<div class='hero'>
+			<h1>Welcome, {props.name}</h1>
+		</div>
+	);
+}
+
 function App() {
   //hook to set state
   //state constant todos, update method is setTodos
@@ -24,7 +32,11 @@ function App() {
 	const completeTodo = index => {
 		//this time, copy todo again, but we're not adding anything
 		const newTodos = [...todos];
-		newTodos[index].isCompleted = true;
+		if (newTodos[index].isCompleted === true) {
+			newTodos[index].isCompleted = false;
+		} else {
+			newTodos[index].isCompleted = true;
+		};
 		//finally, update
 		//note: never change value of newtodos directly, always access it through a getter function like so
 		setTodos(newTodos);
@@ -40,7 +52,8 @@ function App() {
 
   //adds a <div> for app, a <div> for todo-list, and a map of the todos to Todo components.
 	return (
-		
+		<div>
+		<Hero name="Jo"></Hero>
 		<div className="app">
 		<div className="todo-list">
 			
@@ -56,6 +69,7 @@ function App() {
 			<TodoForm addTodo={addTodo} />
 		</div>
 		</div>
+		</div>
 	);
 	}
 
@@ -68,7 +82,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 		>
 		{todo.text}
 		<div>
-			<button onClick={() => completeTodo(index)}>Complete</button>
+			<button onClick={() => completeTodo(index)}>{(todo.isCompleted) ? "Mark Uncomplete" : "Mark Complete"}</button>
 			<button onClick={() => removeTodo(index)}>x</button>
 
 		</div>

@@ -20,6 +20,10 @@
 - MongoDB transition from sql https://university.mongodb.com/mercury/M100/2020_October_13/overview
 - Data modelling https://university.mongodb.com/courses/M320/about 
 
+Queries:
+- SQL to MongoDB mapping chart https://docs.mongodb.com/manual/reference/sql-comparison/index.html 
+- SQL to aggregation mapping chart https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/index.html 
+
 
 #### Docker (21-22)
 - launch website on aws with docker https://docker-curriculum.com 
