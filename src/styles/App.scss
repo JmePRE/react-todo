@@ -65,3 +65,15 @@ form {
     }
     
 }
+
+.login-form {
+    @extend .hero;
+    width: 100%;
+    height:min-content;
+    align-items: center;
+
+    input {
+        width: 35%;
+    }
+
+}

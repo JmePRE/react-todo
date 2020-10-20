@@ -6,8 +6,43 @@ import "./styles/dist/App.css";
 
 function Hero(props) {
 	return (
-		<div class='hero'>
+		<div className='hero'>
 			<h1>Welcome, {props.name}</h1>
+		</div>
+	);
+}
+
+function LoginForm({ uname, password }) {
+	//local state for the todo form
+	const [name, setName] = React.useState("");
+
+	const handleLogin = e => {
+		//returns 'false' to prevent default handle behavior
+		e.preventDefault();
+		//blocking(?)
+		console.log(name);
+		if (!name) return;
+		setName("");
+		//retrieve todos based on name
+	};
+
+	//displays form
+	return (
+		<div className="login-form">
+		<form onSubmit={handleLogin}>
+		<input
+			type="text"
+			className="username"
+			value={name}
+			onChange={e => setName(e.target.value)}
+		/>
+		<input
+			type="text"
+			className="password"
+			value={password}
+			//onChange={e => setName(e.target.value)}
+		/>
+		</form>
 		</div>
 	);
 }
@@ -54,6 +89,7 @@ function App() {
 	return (
 		<div>
 		<Hero name="Jo"></Hero>
+		<LoginForm />
 		<div className="app">
 		<div className="todo-list">
 			
